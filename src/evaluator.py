@@ -54,17 +54,17 @@ async def llm_judge(
 async def evaluate(
     result: BenchmarkResult,
     reference: str | None = None,
-    judge_model: str = "llama3.2:1b",
+    judge_model: str | None = "llama3.2:1b",
 ) -> dict[str, float]:
     """Compute quality scores for a BenchmarkResult.
 
     Args:
         result: The benchmark result to evaluate.
         reference: Optional ground-truth answer for ROUGE scoring.
-        judge_model: Ollama model used as judge.
+        judge_model: Ollama model used as judge. Pass None to skip.
 
     Returns:
-        Dict with "rouge_l" (if reference given) and "llm_judge" keys.
+        Dict with "rouge_l" (if reference given) and "llm_judge" (if judge_model given) keys.
     """
     scores: dict[str, float] = {}
 
@@ -72,7 +72,8 @@ async def evaluate(
         scores["rouge_l"] = compute_rouge_l(result.response, reference)
         logger.info("model=%s rouge_l=%.3f", result.model, scores["rouge_l"])
 
-    scores["llm_judge"] = await llm_judge(result.prompt, result.response, judge_model)
-    logger.info("model=%s llm_judge=%.1f", result.model, scores["llm_judge"])
+    if judge_model:
+        scores["llm_judge"] = await llm_judge(result.prompt, result.response, judge_model)
+        logger.info("model=%s llm_judge=%.1f", result.model, scores["llm_judge"])
 
     return scores

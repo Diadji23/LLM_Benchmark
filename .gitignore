@@ -27,7 +27,8 @@ htmlcov/
 Thumbs.db
 
 # Project outputs
-results/
+results/*.json
+results/*.html
 *.json
 !benchmarks/questions.json
 

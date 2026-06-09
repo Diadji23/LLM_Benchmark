@@ -1,0 +1,34 @@
+[
+  {
+    "prompt": "What is the capital of France?",
+    "reference": "The capital of France is Paris."
+  },
+  {
+    "prompt": "Explain what a REST API is in two sentences.",
+    "reference": "A REST API is an interface that allows applications to communicate over HTTP using standard methods like GET, POST, PUT and DELETE. It is stateless, meaning each request contains all the information needed to process it."
+  },
+  {
+    "prompt": "Write a Python function that returns the factorial of a number.",
+    "reference": "def factorial(n):\n    if n == 0:\n        return 1\n    return n * factorial(n - 1)"
+  },
+  {
+    "prompt": "What is the difference between a list and a tuple in Python?",
+    "reference": "A list is mutable, meaning its elements can be changed after creation, while a tuple is immutable and cannot be modified. Tuples are generally faster and used for fixed collections of items."
+  },
+  {
+    "prompt": "What does HTTP status code 404 mean?",
+    "reference": "HTTP 404 means the requested resource was not found on the server."
+  },
+  {
+    "prompt": "Explain the concept of overfitting in machine learning.",
+    "reference": "Overfitting occurs when a model learns the training data too well, including its noise and outliers, and performs poorly on new unseen data. It means the model has low bias but high variance."
+  },
+  {
+    "prompt": "What is a Docker container?",
+    "reference": "A Docker container is a lightweight, standalone executable package that includes everything needed to run an application: code, runtime, libraries and settings. Containers are isolated from each other and from the host system."
+  },
+  {
+    "prompt": "What is the time complexity of binary search?",
+    "reference": "The time complexity of binary search is O(log n), where n is the number of elements in the sorted array."
+  }
+]
